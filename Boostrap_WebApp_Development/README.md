@@ -1,0 +1,1 @@
+# Coreum App Boilerplate App
