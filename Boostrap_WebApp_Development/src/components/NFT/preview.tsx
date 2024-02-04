@@ -19,19 +19,6 @@ export default function Preview() {
         getNFTs();
     }, [walletAddress]);
 
-
-
-
-    const nftss = [
-        { collection: 'My NFT Collection', name: 'My First NFT', owner: 'core1zgdprlr3hz5hhke9ght8mq723a8wlnzqwd60hm', data: '124' },
-        { collection: 'My NFT Collection', name: 'My First NFT', owner: 'core1zgdprlr3hz5hhke9ght8mq723a8wlnzqwd60hm', data: '124' },
-        { collection: 'My NFT Collection', name: 'My First NFT', owner: 'core1zgdprlr3hz5hhke9ght8mq723a8wlnzqwd60hm', data: '124' },
-        { collection: 'My NFT Collection', name: 'My First NFT', owner: 'core1zgdprlr3hz5hhke9ght8mq723a8wlnzqwd60hm', data: '124' },
-        { collection: 'My NFT Collection', name: 'My First NFT', owner: 'core1zgdprlr3hz5hhke9ght8mq723a8wlnzqwd60hm', data: '124' },
-        { collection: 'My NFT Collection', name: 'My First NFT', owner: 'core1zgdprlr3hz5hhke9ght8mq723a8wlnzqwd60hm', data: '124' },
-    ]
-
-
     return (
         <div className="px-10 sm:px-6 lg:px-20">
 
