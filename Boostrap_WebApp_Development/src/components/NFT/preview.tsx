@@ -1,7 +1,28 @@
+import { chainName } from "@/config/defaults";
+import { useChain } from "@cosmos-kit/react";
+import { useEffect, useState } from "react";
 
 export default function Preview() {
 
-    const nfts = [
+    const chainContext = useChain(chainName);
+    const walletAddress = chainContext.address;
+    const [nfts, setNfts] = useState<any[]>([]);
+
+    async function getNFTs() {
+
+        const response = await fetch(`https://full-node.mainnet-1.coreum.dev:1317/coreum/nft/v1beta1/nfts?owner=${walletAddress}`);
+        const data = await response.json();
+        setNfts(data.nfts);
+    }
+
+    useEffect(() => {
+        getNFTs();
+    }, [walletAddress]);
+
+
+
+
+    const nftss = [
         { collection: 'My NFT Collection', name: 'My First NFT', owner: 'core1zgdprlr3hz5hhke9ght8mq723a8wlnzqwd60hm', data: '124' },
         { collection: 'My NFT Collection', name: 'My First NFT', owner: 'core1zgdprlr3hz5hhke9ght8mq723a8wlnzqwd60hm', data: '124' },
         { collection: 'My NFT Collection', name: 'My First NFT', owner: 'core1zgdprlr3hz5hhke9ght8mq723a8wlnzqwd60hm', data: '124' },
@@ -28,9 +49,6 @@ export default function Preview() {
                                             Name
                                         </th>
                                         <th scope="col" className="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">
-                                            Owner
-                                        </th>
-                                        <th scope="col" className="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">
                                             Data
                                         </th>
                                         <th scope="col" className="relative py-3.5 pl-3 pr-4 sm:pr-6">
@@ -39,21 +57,30 @@ export default function Preview() {
                                     </tr>
                                 </thead>
                                 <tbody className="divide-y divide-gray-200 bg-white">
-                                    {nfts.map((person) => (
-                                        <tr key={person.collection}>
+                                    {
+                                    nfts != undefined ? 
+                                    nfts.map((nft: any) => (
+                                        <tr key={nft.id}>
                                             <td className="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-6">
-                                                {person.name}
+                                                {nft.class_id}
                                             </td>
-                                            <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{person.name}</td>
-                                            <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{person.owner}</td>
-                                            <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{person.data}</td>
+                                            <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{nft.id}</td>
+                                            <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{nft.data}</td>
                                             <td className="relative whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-6">
-                                                <a href="#" className="text-indigo-600 hover:text-indigo-900">
-                                                    URI<span className="sr-only">, {person.name}</span>
+                                                <a target="blank" href={nft.uri} className="text-indigo-600 hover:text-indigo-900">
+                                                    URI<span className="sr-only">, {nft.uri}</span>
                                                 </a>
                                             </td>
                                         </tr>
-                                    ))}
+                                    ))
+                                    
+                                    :   
+
+                                    ""
+                                    
+                                    
+                                
+                                }
                                 </tbody>
                             </table>
                         </div>
