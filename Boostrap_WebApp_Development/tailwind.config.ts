@@ -21,21 +21,14 @@ const config: Config = {
         },
         extend: {
             animation: {
-                border: 'border ease infinite',
-                slideUp: 'slideUp 0.3s ease-in-out',
-                slideUp5: 'slideUp 0.5s ease-in-out',
-                slideUp7: 'slideUp 0.7s ease-in-out',
-            },
-            keyframes: {
+                border: 'background ease infinite',
+              },
+              keyframes: {
                 background: {
-                    '0%, 100%': { backgroundPosition: '0% 50%' },
-                    '50%': { backgroundPosition: '100% 50%' },
-                  },
-                border: {
-                '0%, 100%': { backgroundPosition: '0% 50%' },
-                '50%': { backgroundPosition: '100% 50%' },
+                  '0%, 100%': { backgroundPosition: '0% 50%' },
+                  '50%': { backgroundPosition: '100% 50%' },
                 },
-            },
+              },
             spacing: {
                 18: '4.5rem',
                 112: '28rem',
