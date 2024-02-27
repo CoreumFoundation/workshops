@@ -17,49 +17,70 @@ import { Height } from "cosmjs-types/ibc/core/client/v1/client";
 
 
 function SendFTWithTheme() {
-  const [theme, setTheme] = useState('dark');
+  const symbols = ["COREUM", "ATOM", "OSMO", "DYDX", "EVMOS", "KAVA", "SEI"];
+
+  // const dropdownList = symbols.map((symbol) => {
+  //   const asset = assets.find(
+  //     (assetList) => assetList.assets[0].symbol === symbol
+  //   )!.assets[0];
+
+  //   return {
+  //     imgSrc:
+  //       asset.logo_URIs?.png || asset.logo_URIs?.jpeg || asset.logo_URIs?.svg,
+  //     name: asset.name,
+  //     symbol: asset.symbol,
+  //     denom: asset.base,
+  //     available: Number((Math.random() * 100).toFixed(6)),
+  //     priceDisplayAmount: Math.floor(Math.random() * 10) + 1,
+  //     description: asset.description,
+  //     base: asset.base,
+  //   };
+  // });
+
+  const channels = ibc.filter(
+    (channel) => channel.chain_1.chain_name === "coreum"
+  );
+
+  const IBCEnableChains = channels.map((channel) => {
+    const chain = chains.find(
+      (chain) => chain.chain_name === channel.chain_2.chain_name
+    );
+
+    return {
+      imgSrc: chain?.logo_URIs?.png,
+      name: chain?.pretty_name,
+      chainId: chain?.chain_id,
+      base: chain?.bech32_prefix,
+      channel: channel.channels[0].chain_1.channel_id,
+    };
+  });
+
+  console.log(IBCEnableChains);
+  console.log(channels);
+
+  function classNames(...classes) {
+    return classes.filter(Boolean).join(" ");
+  }
+  const [response, setResponse] = useState<any>("");
+  const [error, setError] = useState<any>("");
+
   const [receiver, setReceiver] = useState("");
-  const [amount, setAmount] = useState("");
+  const [amount, setAmount] = useState<string>("");
   const [denom, setDenom] = useState("");
+
   const [isIBCEnable, setIBCEnable] = useState(false);
-  const [selectedChain, setSelectedChain] = useState(null);
-  const [response, setResponse] = useState("");
-  const [error, setError] = useState("");
-  const [IBCEnableChains, setIBCEnableChains] = useState([]);
 
   const chainContext = useChain(chainName);
   const walletAddress = chainContext.address ?? "";
-  const coreumSigner = useContext(CoreumSigner);
-
-  useEffect(() => {
-    const filteredChains = ibc.filter(
-      (channel) => channel.chain_1.chain_name === "coreum"
-    ).map((channel) => {
-      const chain = chains.find(
-        (chain) => chain.chain_name === channel.chain_2.chain_name
-      );
-      return {
-        imgSrc: chain?.logo_URIs?.png,
-        name: chain?.pretty_name,
-        chainId: chain?.chain_id,
-        base: chain?.bech32_prefix,
-        channel: channel.channels[0].chain_1.channel_id,
-      };
-    });
-    setIBCEnableChains(filteredChains);
-    if (filteredChains.length > 0) {
-      setSelectedChain(filteredChains[0]);
-    }
-  }, []);
 
   const fee: StdFee = {
     amount: [{ denom: "ucore", amount: "3594" }],
     gas: "120000",
   };
 
-  const toggleTheme = () => {
-    setTheme(theme === 'dark' ? 'light' : 'dark');
-  };
+  const [selectedChain, setSelectedChain] = useState(IBCEnableChains[0]);
+
+  const coreumSigner = useContext(CoreumSigner);
 
   const msgBankSend: MsgSendEncodeObject = {
     typeUrl: "/cosmos.bank.v1beta1.MsgSend",
@@ -76,11 +97,6 @@ function SendFTWithTheme() {
   };
 
   async function send() {
-    if (!coreumSigner) {
-      console.error("CoreumSigner is not initialized.");
-      setError("CoreumSigner is not initialized.");
-      return;
-    }
     //@ts-ignore
     coreumSigner
       .signAndBroadcast(walletAddress ?? "", [msgBankSend], fee)
@@ -91,7 +107,9 @@ function SendFTWithTheme() {
         setError(error);
       });
   }
-  
+
+    
+
 
   async function IBCSend() {
     const coin: Coin = {
@@ -140,117 +158,137 @@ function SendFTWithTheme() {
       });
   }
 
-  const  handleStandardSubmit = (e) => {
-    e.preventDefault();
-    if (isIBCEnable) {
-      IBCSend();
-    } else {
-      send();
-    }
-  };
+
 
 
   return (
-    <div className={`min-h-screen flex flex-col justify-start items-center pt-20 ${theme === 'dark' ? 'bg-gradient-to-br from-blue-900 to-gray-900 text-white' : 'bg-gradient-to-br from-yellow-100 to-gray-100 text-gray-900'}`}>
-      <div className='w-full max-w-lg mx-auto bg-gray-800 bg-opacity-90 backdrop-filter backdrop-blur-lg p-6 rounded-3xl shadow-2xl transform transition-all hover:scale-105 duration-500'>
-        <h2 className="text-4xl font-bold mb-8 text-center text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-blue-500">IBC Token Transfer</h2>
-        <form onSubmit={isIBCEnable ? (e) => {e.preventDefault(); IBCSend();} : handleStandardSubmit} className="space-y-6">
-          <input
-            type="text"
-            value={receiver}
-            onChange={(e) => setReceiver(e.target.value)}
-            placeholder="Recipient Address"
-            className="w-full p-3 rounded-lg focus:ring focus:ring-blue-500 focus:outline-none"
-            required
-          />
-          <input
-            type="text"
-            value={denom}
-            onChange={(e) => setDenom(e.target.value)}
-            placeholder="Denomination (e.g., uatom)"
-            className="w-full p-3 rounded-lg focus:ring focus:ring-blue-500 focus:outline-none"
-            required
-          />
-          <input
-            type="number"
-            value={amount}
-            onChange={(e) => setAmount(e.target.value)}
-            placeholder="Amount"
-            className="w-full p-3 rounded-lg focus:ring focus:ring-blue-500 focus:outline-none"
-            required
-          />
-          <Switch
-            checked={isIBCEnable}
-            onChange={setIBCEnable}
-            className={`${isIBCEnable ? 'bg-green-400' : 'bg-gray-200'} relative inline-flex items-center h-6 rounded-full w-11`}
-          >
-            <span className="sr-only">Enable IBC</span>
-            <span
-              className={`${isIBCEnable ? 'translate-x-6' : 'translate-x-1'} inline-block w-4 h-4 transform bg-white rounded-full`}
-            />
-          </Switch>
-          {isIBCEnable && (
-            <Listbox value={selectedChain} onChange={setSelectedChain}>
-              {({ open }) => (
-                <>
-                  <Listbox.Button className="w-full py-2 pl-3 pr-10 text-left bg-white rounded-lg shadow-md cursor-default focus:outline-none focus-visible:ring-2 focus-visible:ring-opacity-75 focus-visible:ring-white focus-visible:ring-offset-orange-300 focus-visible:border-indigo-500 sm:text-sm">
-                    <span className="block truncate">{selectedChain?.name}</span>
-                    <span className="absolute inset-y-0 right-0 flex items-center pr-2 pointer-events-none">
-                      <ChevronUpDownIcon className="w-5 h-5 text-gray-400" aria-hidden="true" />
-                    </span>
-                  </Listbox.Button>
-                  <Transition
-                    show={open}
-                    as={Fragment}
-                    leave="transition ease-in duration-100"
-                    leaveFrom="opacity-100"
-                    leaveTo="opacity-0"
+<div className="mx-4 md:mx-12 lg:mx-24 xl:mx-48 2xl:mx-72 my-10 p-8 bg-gradient-to-br from-gray-800 to-gray-900 shadow-xl rounded-xl text-gray-100">
+  <div className="flex flex-col items-center">
+    <h2 className="text-3xl font-bold mb-4 text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-blue-500">
+      Send Your <a href="https://www.coreum.com/smart-tokens" className="underline decoration-green-400 decoration-4">Smart Tokens</a>
+    </h2>
+    <p className="text-center mb-6">Depending on the nature of your Smart Token, you can send it to another user. Please note, you will not be able to reclaim the assets unless the receiver sends them back to you.</p>
+  </div>
+
+  <div className="flex items-center justify-center mb-4">
+    <Switch
+      checked={isIBCEnable}
+      onChange={setIBCEnable}
+      className={`${isIBCEnable ? 'bg-green-500' : 'bg-gray-700'} relative inline-flex items-center h-6 rounded-full w-11 transition-colors focus:outline-none`}
+    >
+      <span className="sr-only">Enable IBC Transfer</span>
+      <span
+        className={`${isIBCEnable ? 'translate-x-6' : 'translate-x-1'} inline-block w-4 h-4 transform bg-white rounded-full transition-transform`}
+      />
+    </Switch>
+    <span className="ml-3 text-sm font-medium">IBC Transfer</span>
+  </div>
+
+  {isIBCEnable && (
+    <div className="relative w-full md:w-2/3 lg:w-1/2 xl:w-1/3 2xl:w-1/4 mx-auto my-5">
+      <Listbox value={selectedChain} onChange={setSelectedChain}>
+        {({ open }) => (
+          <>
+            <Listbox.Button className="relative w-full py-2 pl-3 pr-10 text-left bg-gray-700 rounded-lg shadow-md cursor-default focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-green-500">
+              <span className="block truncate">{selectedChain.name}</span>
+              <span className="absolute inset-y-0 right-0 flex items-center pr-2 pointer-events-none">
+                <ChevronUpDownIcon className="w-5 h-5 text-gray-400" />
+              </span>
+            </Listbox.Button>
+            <Transition
+              show={open}
+              enter="transition-opacity duration-150"
+              enterFrom="opacity-0"
+              enterTo="opacity-100"
+              leave="transition-opacity duration-150"
+              leaveFrom="opacity-100"
+              leaveTo="opacity-0"
+            >
+              <Listbox.Options static className="absolute w-full py-1 mt-1 overflow-auto text-base bg-gray-700 rounded-md shadow-lg max-h-60 ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm">
+                {IBCEnableChains.map((chain, idx) => (
+                  <Listbox.Option
+                    key={idx}
+                    className={({ active }) =>
+                      `cursor-default select-none relative py-2 pl-10 pr-4 ${active ? 'text-green-200 bg-gray-600' : 'text-gray-100'}`
+                    }
+                    value={chain}
                   >
-                    <Listbox.Options className="absolute w-full py-1 mt-1 overflow-auto text-base bg-white rounded-md shadow-lg max-h-60 ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm">
-                      {IBCEnableChains.map((chain, index) => (
-                        <Listbox.Option
-                          key={index}
-                          className={({ active }) => `${active ? 'text-amber-900 bg-amber-100' : 'text-gray-900'} cursor-default select-none relative py-2 pl-10 pr-4`}
-                          value={chain}
-                        >
-                          {({ selected, active }) => (
-                            <>
-                              <span className={`${selected ? 'font-medium' : 'font-normal'} block truncate`}>{chain.name}</span>
-                              {selected ? (
-                                <span className={`${active ? 'text-amber-600' : 'text-amber-600'} absolute inset-y-0 left-0 flex items-center pl-3`}>
-                                  <CheckIcon className="w-5 h-5" aria-hidden="true" />
-                                </span>
-                              ) : null}
-                            </>
-                          )}
-                        </Listbox.Option>
-                      ))}
-                    </Listbox.Options>
-                  </Transition>
-                </>
-              )}
-            </Listbox>
-          )}
-          <button
-            type="submit"
-            className="w-full px-4 py-2 text-sm font-medium text-white bg-blue-600 rounded-md hover:bg-blue-700 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75"
-          >
-            {isIBCEnable ? 'Send via IBC' : 'Send'}
-          </button>
-        </form>
-        <button
-          onClick={toggleTheme}
-          className="mt-4 p-2 text-sm text-gray-800 bg-white rounded-full shadow cursor-pointer hover:bg-gray-200"
-        >
-          Toggle {theme === 'dark' ? 'Light' : 'Dark'} Mode
-        </button>
-        <div className="mt-5">
-          {response && <p className="text-emerald-500">{response}</p>}
-          {error && <p className="text-red-500">{error}</p>}
-        </div>
-      </div>
+                    {({ selected }) => (
+                      <>
+                        <span className={`${selected ? 'font-medium' : 'font-normal'} block truncate`}>{chain.name}</span>
+                        {selected ? (
+                          <span className="absolute inset-y-0 left-0 flex items-center pl-3 text-green-500">
+                            <CheckIcon className="w-5 h-5" aria-hidden="true" />
+                          </span>
+                        ) : null}
+                      </>
+                    )}
+                  </Listbox.Option>
+                ))}
+              </Listbox.Options>
+            </Transition>
+          </>
+        )}
+      </Listbox>
+      <p className="mt-2 text-sm text-gray-400">Message will be sent through {selectedChain.channel}</p>
     </div>
+  )}
+
+  <form className="mt-4 space-y-3" autoComplete="off">
+    <input
+      type="text"
+      placeholder="Denom"
+      onChange={(e) => setDenom(e.target.value)}
+      className="w-full px-4 py-2 bg-gray-700 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500"
+    />
+    <input
+      type="number"
+      placeholder="Amount (of subunits)"
+      onChange={(e) => setAmount(e.target.value)}
+      className="w-full px-4 py-2 bg-gray-700 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500"
+    />
+    <input
+      type="text"
+      placeholder={selectedChain.base + "..."}
+      onChange={(e) => setReceiver(e.target.value)}
+      className="w-full px-4 py-2 bg-gray-700 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500"
+    />
+  </form>
+
+ <div className="mt-6 flex justify-center">
+  {isIBCEnable ? (
+    <button
+      disabled={!walletAddress}
+      onClick={IBCSend}
+      className="relative px-6 py-2 font-semibold text-white rounded-lg shadow-lg bg-gradient-to-r from-teal-300 to-cyan-500 hover:from-teal-400 hover:to-cyan-600 disabled:opacity-50 transition ease-in-out duration-300 transform hover:-translate-y-1 hover:scale-105 before:absolute before:inset-0 before:rounded-lg before:bg-white before:bg-opacity-20 before:shadow-inner before:transition-opacity hover:before:bg-opacity-0"
+    >
+      <span className="relative">
+        IBC Send
+      </span>
+    </button>
+  ) : (
+    <button
+      disabled={!walletAddress}
+      onClick={send}
+      className="relative px-6 py-2 font-semibold text-white rounded-lg shadow-lg bg-gradient-to-r from-teal-300 to-cyan-500 hover:from-teal-400 hover:to-cyan-600 disabled:opacity-50 transition ease-in-out duration-300 transform hover:-translate-y-1 hover:scale-105 before:absolute before:inset-0 before:rounded-lg before:bg-white before:bg-opacity-20 before:shadow-inner before:transition-opacity hover:before:bg-opacity-0"
+    >
+      <span className="relative">
+        Send
+      </span>
+    </button>
+  )}
+</div>
+
+
+
+
+  <div className="mt-6 text-center">
+    <p className="text-green-400">{response.rawLog}</p>
+    <p className="text-red-500">{error.message}</p>
+  </div>
+</div>
+
   );
 }
-
 export default SendFTWithTheme;
+

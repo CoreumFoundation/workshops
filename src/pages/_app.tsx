@@ -31,7 +31,7 @@ export default function App({ Component, pageProps }: AppProps) {
         ]}
         walletConnectOptions={{
           signClient: {
-            projectId: "9bd3da224c153a4e77b54d8c5fdd965d",
+            projectId: "",
             relayUrl: "wss://relay.walletconnect.org",
             metadata: {
               name: "Coreum Template App",
