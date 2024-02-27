@@ -9,6 +9,10 @@ import { chainName } from "@/config/defaults";
 import { Fragment } from 'react';
 import { MsgSendEncodeObject } from "@cosmjs/stargate/build/modules";
 import { MsgSend } from "cosmjs-types/cosmos/bank/v1beta1/tx";
+import { Coin } from "coreum-js/dist/main/cosmos/base/v1beta1/coin";
+import { Height } from "cosmjs-types/ibc/core/client/v1/client";
+
+
 
 
 
@@ -72,6 +76,11 @@ function SendFTWithTheme() {
   };
 
   async function send() {
+    if (!coreumSigner) {
+      console.error("CoreumSigner is not initialized.");
+      setError("CoreumSigner is not initialized.");
+      return;
+    }
     //@ts-ignore
     coreumSigner
       .signAndBroadcast(walletAddress ?? "", [msgBankSend], fee)
@@ -82,6 +91,7 @@ function SendFTWithTheme() {
         setError(error);
       });
   }
+  
 
   async function IBCSend() {
     const coin: Coin = {
@@ -144,7 +154,7 @@ function SendFTWithTheme() {
     <div className={`min-h-screen flex flex-col justify-start items-center pt-20 ${theme === 'dark' ? 'bg-gradient-to-br from-blue-900 to-gray-900 text-white' : 'bg-gradient-to-br from-yellow-100 to-gray-100 text-gray-900'}`}>
       <div className='w-full max-w-lg mx-auto bg-gray-800 bg-opacity-90 backdrop-filter backdrop-blur-lg p-6 rounded-3xl shadow-2xl transform transition-all hover:scale-105 duration-500'>
         <h2 className="text-4xl font-bold mb-8 text-center text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-blue-500">IBC Token Transfer</h2>
-        <form onSubmit={isIBCEnable ? handleIBCSubmit : handleStandardSubmit} className="space-y-6">
+        <form onSubmit={isIBCEnable ? (e) => {e.preventDefault(); IBCSend();} : handleStandardSubmit} className="space-y-6">
           <input
             type="text"
             value={receiver}

@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@cosmjs/amino": "^0.32.2",
     "@cosmos-kit/core": "^2.6.6",
     "@cosmos-kit/cosmostation": "^2.3.11",
     "@cosmos-kit/frontier": "^2.3.10",
