@@ -9,14 +9,14 @@ Welcome to the **Coreum Workshops** repository! This repository is your gateway 
 
 Below is a list of workshops available in this repository. Click on a workshop to access its materials, instructions, and additional resources.
 
-### 1. [Bootstrap Web Development on Coreum](./Boostrap_WebApp_Development/)
+### 1. [IBC Web Development on Coreum](./IBCTransfer_WebApp_Development/)
 In this comprehensive workshop, participants will dive into the world of decentralized application development using the Create Coreum App Npm package. This workshop is tailored for developers looking to streamline their web development process and integrate with the Coreum Blockchain seamlessly.
 
 #### What You Will Learn
 - Setting up a full-stack web development environment tailored for Coreum.
 - Effective interaction and signing of Coreum custom messages using web-based wallets.
-- Step-by-step guidance on creating a decentralized application from scratch.
-- Hands-on experience with Smart Tokens in the browser, including creating NFT collections, minting NFTs, and sending NFTs.
+- Step-by-step guidance on creating a IBC transfer and denom construction.
+- Hands-on experience with IBC  in the browser, including transfering FT token to other chains, denom construction
 
 #### Prerequisites
 - Basic knowledge of TypeScript and React.
