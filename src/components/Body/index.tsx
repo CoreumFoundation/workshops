@@ -11,6 +11,10 @@ import { MsgSendEncodeObject } from "@cosmjs/stargate/build/modules";
 import { MsgSend } from "cosmjs-types/cosmos/bank/v1beta1/tx";
 import { Coin } from "coreum-js/dist/main/cosmos/base/v1beta1/coin";
 import { Height } from "cosmjs-types/ibc/core/client/v1/client";
+import Long from "long";
+import crypto from 'crypto'; // Import crypto module for SHA256 hashing
+import { motion } from 'framer-motion';
+
 
 
 
@@ -41,6 +45,8 @@ function SendFTWithTheme() {
     (channel) => channel.chain_1.chain_name === "coreum"
   );
 
+
+
   const IBCEnableChains = channels.map((channel) => {
     const chain = chains.find(
       (chain) => chain.chain_name === channel.chain_2.chain_name
@@ -52,11 +58,10 @@ function SendFTWithTheme() {
       chainId: chain?.chain_id,
       base: chain?.bech32_prefix,
       channel: channel.channels[0].chain_1.channel_id,
+      channel2: channel.channels[0].chain_2.channel_id
     };
   });
 
-  console.log(IBCEnableChains);
-  console.log(channels);
 
   function classNames(...classes) {
     return classes.filter(Boolean).join(" ");
@@ -67,6 +72,9 @@ function SendFTWithTheme() {
   const [receiver, setReceiver] = useState("");
   const [amount, setAmount] = useState<string>("");
   const [denom, setDenom] = useState("");
+  const[IBCDenom, setIBCDenom] = useState("");
+  const [hashValue, setHashValue] = useState(""); // State for hash value
+
 
   const [isIBCEnable, setIBCEnable] = useState(false);
 
@@ -74,11 +82,12 @@ function SendFTWithTheme() {
   const walletAddress = chainContext.address ?? "";
 
   const fee: StdFee = {
-    amount: [{ denom: "ucore", amount: "3594" }],
+    amount: [{ denom: "ucore", amount: "6084" }],
     gas: "120000",
   };
 
   const [selectedChain, setSelectedChain] = useState(IBCEnableChains[0]);
+
 
   const coreumSigner = useContext(CoreumSigner);
 
@@ -96,6 +105,36 @@ function SendFTWithTheme() {
     }),
   };
 
+
+
+  // Function to compute SHA256 hash
+const hash = (input) => {
+  return crypto.createHash('sha256').update(input).digest('hex');
+};
+
+// Function to handle button click
+const handleButtonClick = () => {
+  // Construct denom dynamically
+  const constructedDenom = `transfer/${selectedChain.channel2}/${denom}`;
+  console.log("Constructed Denom:", constructedDenom);
+
+  // Compute the hash value
+  const hashedValue = hash(constructedDenom);
+  console.log("Computed Hash:", hashedValue);
+
+  // Set the hash value into the state
+  setHashValue(hashedValue);
+  console.log("Selected Chain Channel2:", selectedChain.channel2);
+};
+
+useEffect(() => {
+  // Call handleButtonClick when the component mounts
+  handleButtonClick();
+});
+
+console.log("Selected Chain:", selectedChain);
+
+
   async function send() {
     //@ts-ignore
     coreumSigner
@@ -108,7 +147,6 @@ function SendFTWithTheme() {
       });
   }
 
-    
 
 
   async function IBCSend() {
@@ -118,10 +156,13 @@ function SendFTWithTheme() {
     };
 
     const timeoutHeight: Height = {
-      revisionNumber: BigInt(2706277831000000000),
-      revisionHeight: BigInt(1),
+      //@ts-ignore 
+      revisionNumber: Long.fromString("2706277831000000000"),
+      revisionHeight: new Long(1),
     };
 
+  
+  
     //@ts-ignore
     coreumSigner
       ?.sendIbcTokens(
@@ -147,7 +188,7 @@ function SendFTWithTheme() {
         fee,
 
         /** optional memo */
-        "Coreum Smart Token IBC Transfer"
+        "Coreum IBC Transfer"
       )
 
       .then((response) => {
@@ -162,9 +203,12 @@ function SendFTWithTheme() {
 
 
   return (
-<div className="mx-4 md:mx-12 lg:mx-24 xl:mx-48 2xl:mx-72 my-10 p-8 bg-gradient-to-br from-gray-800 to-gray-900 shadow-xl rounded-xl text-gray-100">
+ 
+   
+
+<div className="mx-4 md:mx-12 lg:mx-24 xl:mx-48 2xl:mx-72 my-10 p-8 bg-gradient-to-br from-gray-800 to-gray-900 shadow-2xl rounded-2xl text-gray-100 transition-all duration-500 ease-in-out transform hover:scale-105">
   <div className="flex flex-col items-center">
-    <h2 className="text-3xl font-bold mb-4 text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-blue-500">
+  <h2 className="text-3xl font-bold mb-4 text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-blue-500 hover:text-green-300">
       Send Your <a href="https://www.coreum.com/smart-tokens" className="underline decoration-green-400 decoration-4">Smart Tokens</a>
     </h2>
     <p className="text-center mb-6">Depending on the nature of your Smart Token, you can send it to another user. Please note, you will not be able to reclaim the assets unless the receiver sends them back to you.</p>
@@ -254,6 +298,11 @@ function SendFTWithTheme() {
       className="w-full px-4 py-2 bg-gray-700 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500"
     />
   </form>
+  <div>
+  <p>Preview: IBC/hash(transfer/{selectedChain.channel2}/{denom})</p>
+  <p>Result:  {`IBC/${hashValue}`}</p>
+  </div>
+
 
  <div className="mt-6 flex justify-center">
   {isIBCEnable ? (
@@ -278,15 +327,14 @@ function SendFTWithTheme() {
     </button>
   )}
 </div>
-
-
-
-
-  <div className="mt-6 text-center">
+<div className="mt-6 text-center">
     <p className="text-green-400">{response.rawLog}</p>
     <p className="text-red-500">{error.message}</p>
   </div>
+
+  
 </div>
+
 
   );
 }
