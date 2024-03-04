@@ -85,12 +85,26 @@ export const Header = () => {
         <div className="flex flex-col w-full">
             {/* Animated Banner */}
             <div className="text-white text-center py-2 overflow-hidden relative" style={{ 
-                background: 'linear-gradient(145deg, #065f46, #0b8b75)' 
-            }}>
-                <div className="whitespace-nowrap animate-marquee">
-                    #BuildOnCoreum — The Future of Blockchain Technology — #BuildOnCoreum
-                </div>
-            </div>
+  background: 'linear-gradient(145deg, #2ECC71, #A2D9CE)' 
+}}>
+  <div className="whitespace-nowrap animate-marquee" style={{
+    textShadow: '0 2px 4px rgba(0, 0, 0, 0.5)' // Adds shadow for depth
+  }}>
+    <span className="font-bold text-lg md:text-xl lg:text-2xl" // Adjusts font size responsively
+    >
+      #BuildOnCoreum — The Future of Blockchain Technology — #BuildOnCoreum
+    </span>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
             
 
             {/* Header Content */}
