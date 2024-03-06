@@ -1,4 +1,4 @@
-IBC/node_modules/*
-IBC/.next/*
-IBC/.DS_Store
+ibc/node_modules/*
+ibc/.next/*
+ibc/.DS_Store
 .DS_Store
