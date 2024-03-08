@@ -1,4 +1,5 @@
 {
+<<<<<<< HEAD
   "name": "ibc",
   "version": "0.1.0",
   "private": true,
@@ -42,4 +43,26 @@
     "three": "^0.161.0",
     "typescript": "4.9.5"
   }
+=======
+  "name": "workshops",
+  "version": "1.0.0",
+  "description": "IBC workshop",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Jahanzeb9999/workshops.git"
+  },
+  "keywords": [
+    "IBC"
+  ],
+  "author": "Coreum/Jahanzeb",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Jahanzeb9999/workshops/issues"
+  },
+  "homepage": "https://github.com/Jahanzeb9999/workshops#readme"
+>>>>>>> dddeb3beb9a21fcfd500d1d629853db533164943
 }
