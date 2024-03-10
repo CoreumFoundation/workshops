@@ -28,9 +28,6 @@ _More workshops will be added as they become available._
 
 For detailed explanations and recordings of these workshops, visit the [Coreum Workshops](https://www.coreum.com/workshops) page on the Coreum website.
 
-## Contributing
-
-We welcome contributions! If you have suggestions or want to contribute to the workshop materials, please feel free to submit pull requests or raise issues.
 
 ### 2. [IBC Web Development on Coreum](./IBCTransfer_WebApp_Development/)
 In this comprehensive workshop, participants will dive into the world of decentralized application development using the Create Coreum App Npm package. This workshop is tailored for developers looking to streamline their web development process and integrate with the Coreum Blockchain seamlessly.
