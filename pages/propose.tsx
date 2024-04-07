@@ -9,7 +9,6 @@ import {AssetNFT as AssetNFTTx, NFT as NFTTx} from "../coreum/tx";
 import {EncodeObject} from "@cosmjs/proto-signing";
 import { StdFee } from '@cosmjs/amino';
 
-
 //contract testcore1td6j5a99pnu2zezcrckjfnwcmhmwfmcu35svxpphv3qx59n8sf0q4et20n
 const contractAddress = 'testcore16xyl4nnjf907md4a6jh45qdauzgfm57l66fnngayrg8m4t3y9peshvrj3s'; 
 
@@ -23,6 +22,8 @@ const Propose: NextPage = () => {
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState('')
   const [classCreated, setClassCreated] = useState(false)
+  const [nftClassDescription, setNFTClassDescription] = useState('')
+  const [nfts, setNfts] = useState<{ classId: string; id: string, uri: string, uriHash: string, owner: string }[]>([])
   const [transferID, setTransferID] = useState("")
   const [recipientAddress, setRecipientAddress] = useState('')
 
@@ -31,7 +32,8 @@ const Propose: NextPage = () => {
       return
     }
     setError('')
-    setLoading(false)
+    //setLoading(true)
+    
 
   }, [signingClient, walletAddress])
 
@@ -86,40 +88,40 @@ const Propose: NextPage = () => {
         </div>
       )}
       {transferID == "" && !classCreated && (
-        <div>
-         <div className="flex flex-col items-center justify-center min-h-screen">
-         <h1 className="text-3xl font-bold my-8">
-           Propose Workshop
-         </h1>
-         <form onSubmit={handleSubmit} className="flex flex-col w-full max-w-xl gap-4">
-           <input
-             type="text"
-             id="title"
-             className="input input-bordered focus:input-primary input-lg rounded-full font-mono text-center text-lg"
-             placeholder="Workshop title"
-             onChange={(event) => setTitle(event.target.value)}
-             value={title}
-           />
-           <textarea
-             id="description"
-             className="textarea textarea-bordered focus:textarea-primary h-24 text-base font-mono text-center"
-             placeholder="Workshop description"
-             onChange={(event) => setDescription(event.target.value)}
-             value={description}
-           ></textarea>
-           <button
-             type="submit"
-             className="btn btn-primary btn-lg font-semibold hover:text-base-100 text-2xl rounded-full"
-           >
-             Submit Proposal
-           </button>
-         </form>
-       </div>
-
-        </div>
+        <div className="flex flex-col items-center justify-center min-h-screen px-4 md:px-0">
+        <h1 className="text-4xl font-bold my-8 text-center">
+          Propose Workshop
+        </h1>
+        <form onSubmit={handleSubmit} className="flex flex-col w-full max-w-4xl gap-6">
+          <input
+            type="text"
+            id="title"
+            className="input input-bordered focus:input-primary input-lg w-full rounded-lg font-mono text-lg p-4"
+            placeholder="Workshop title"
+            onChange={(event) => setTitle(event.target.value)}
+            value={title}
+          />
+          <textarea
+            id="description"
+            className="textarea textarea-bordered focus:textarea-primary h-36 text-lg font-mono w-full rounded-lg p-4"
+            placeholder="Workshop description"
+            onChange={(event) => setDescription(event.target.value)}
+            value={description}
+          ></textarea>
+          <button
+            type="submit"
+            className="btn btn-primary btn-lg font-semibold hover:text-base-100 text-xl rounded-lg py-3 px-6"
+          >
+            Submit Proposal
+          </button>
+        </form>
+      </div>
 
       )}
-  
+   
+            
+
+
     </WalletLoader>
   )
 }

@@ -4,8 +4,12 @@ import {sha256} from 'js-sha256'
 
 import WalletLoader from 'components/WalletLoader'
 import {useSigningClient} from 'contexts/client'
+import {QueryNFTsResponse} from "../coreum/proto-ts/coreum/nft/v1beta1/query";
+import {AssetNFT as AssetNFTTx, NFT as NFTTx} from "../coreum/tx";
+import {EncodeObject} from "@cosmjs/proto-signing";
 import { StdFee } from '@cosmjs/amino';
 
+import { CosmWasmClient, SigningCosmWasmClient, SigningCosmWasmClientOptions} from '@cosmjs/cosmwasm-stargate';
 
 //contract 
 const contractAddress = 'testcore15rdlncz75zf2txgue52zcmm4jh6hxr5gejmavnxnr2rxh8a5jyjqgypktm'; 
@@ -31,26 +35,15 @@ const Results: NextPage = () => {
   const {walletAddress, signingClient, coreumQueryClient} = useSigningClient()
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState('')
-  const [transferID, setTransferID] = useState("")
-  const [recipientAddress, setRecipientAddress] = useState('')
-
-
 
   useEffect(() => {
     if (!signingClient || walletAddress.length === 0) {
       return
     }
     setError('')
-    setLoading(false)
+    //setLoading(true)
 
   }, [signingClient, walletAddress])
-
- 
-
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    console.log('Wallet Address:', walletAddress);
-  };
 
 
   return (
