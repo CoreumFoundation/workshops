@@ -179,36 +179,37 @@ const Vote: NextPage = () => {
       </h1>
 
        {/* On Chain Proposals */}
-       <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-bold mb-6 text-center text-white">On Chain Proposals</h2>
-        <div className="flex justify-center flex-wrap gap-6">
-          {proposal.map((p) => (
-          <div key={p.id} className="bg-gray-200 rounded-lg p-4 shadow-lg w-full md:w-1/2 lg:w-1/3 xl:w-1/6 text-center">
-            <h3 className="text-xl font-semibold mb-2 text-gray-800">ID: {p.id}</h3>
-            <p className="font-semibold text-gray-800">Title: {p.title}</p>
-            <p className="text-gray-600">{p.description}</p>
-          {/* Displaying the vote counts */}
-            <p className="text-gray-600">Votes For: {p.votes_for}</p>
-            <p className="text-gray-600">Votes Against: {p.votes_against}</p>
-            <p className="text-gray-600">Time Till End: {p.voting_end}</p>
-          </div>
-        ))}
+       {/* On Chain Proposals */}
+<div className="container mx-auto px-4">
+  <h2 className="text-3xl font-bold mb-6 text-center text-white">Vote On Proposals</h2>
+  <div className="flex justify-center flex-wrap gap-6">
+    {proposal.map((p) => (
+    <div key={p.id} className="bg-white rounded-lg p-6 shadow-lg w-full md:w-1/2 lg:w-1/3 text-center space-y-4">
+      <div className="text-xl font-semibold mb-2 text-gray-800">
+        <span className="text-gray-500">ID:</span> {p.id}
       </div>
+      <div className="font-semibold text-gray-800">
+        <span className="text-gray-500">Title:</span> {p.title}
       </div>
-  
-      {/* Proposals Section */}
-      <div className="container mx-auto px-4">
-        <h2 className="text-3xl font-bold mb-6 text-center text-white">Dummy Proposals</h2>
-        <div className="flex justify-center flex-wrap gap-6">
-          {proposals.map((proposal) => (
-            <div key={proposal.id} className="bg-gray-200 rounded-lg p-4 shadow-lg w-full md:w-1/2 lg:w-1/3 xl:w-1/6 text-center">
-              <h3 className="text-xl font-semibold mb-2 text-gray-800">ID: {proposal.id}</h3>
-              <p className="font-semibold text-gray-800">Title: {proposal.title}</p>
-              <p className="text-gray-600">{proposal.description}</p>
-            </div>
-          ))}
+      <p className="text-gray-600">{p.description}</p>
+      {/* Displaying the vote counts */}
+      <div className="flex justify-between items-center text-gray-600">
+        <div>
+          <span className="font-bold text-green-600">For:</span> {p.votes_for}
+        </div>
+        <div>
+          <span className="font-bold text-red-600">Against:</span> {p.votes_against}
         </div>
       </div>
+      <p className="text-gray-600">
+        <span className="font-bold">Ends In:</span> {p.voting_end} {/* Consider formatting this time in a human-readable format */}
+      </p>
+      {/* Interactive voting buttons */}
+    </div>
+    ))}
+  </div>
+</div>
+
   
       {/* Vote Submission Form */}
       <div className="mt-8 container mx-auto px-4">
