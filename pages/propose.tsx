@@ -10,7 +10,7 @@ import {EncodeObject} from "@cosmjs/proto-signing";
 import { StdFee } from '@cosmjs/amino';
 
 //contract testcore1td6j5a99pnu2zezcrckjfnwcmhmwfmcu35svxpphv3qx59n8sf0q4et20n
-const contractAddress = 'testcore16xyl4nnjf907md4a6jh45qdauzgfm57l66fnngayrg8m4t3y9peshvrj3s'; 
+const contractAddress = 'testcore1rt5khxlnt9yh0wqwdwvdu0y9lfheapx3jh6w6hqav6782fr3xedsyywkxl'; 
 
 const fee: StdFee = {
   amount: [{ denom: "utest", amount: "6084" }],
@@ -26,6 +26,9 @@ const Propose: NextPage = () => {
   const [nfts, setNfts] = useState<{ classId: string; id: string, uri: string, uriHash: string, owner: string }[]>([])
   const [transferID, setTransferID] = useState("")
   const [recipientAddress, setRecipientAddress] = useState('')
+  const [recipient, setRecipient] = useState('');
+  const [amount, setAmount] = useState('');
+
 
   useEffect(() => {
     if (!signingClient || walletAddress.length === 0) {
@@ -40,21 +43,21 @@ const Propose: NextPage = () => {
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
 
-  const handleSubmit = (event) => {
+  const handleSubmit = (event: { preventDefault: () => void }) => {
     event.preventDefault();
     propose(title, description);
     console.log('Submitting Proposal:', { title, description });
     console.log('Wallet Address:', walletAddress);
   };
 
-  const propose = async (title, description) => {
+  const propose = async (title: string, description: string) => {
     // Hardcoded amount, represented as a string to match the Uint128 format expected by the contract
     //const amount = "1"; // This is just a placeholder
 
     const title1 = "Your Proposal Title";
     const description1 = "Your detailed proposal description";
     const recipient = "testcore1xhvglxz55w0uy73t5lxhypt8leud9wsd92ccjq"; // Optional recipient address
-    const amount = "123456789"; // Optional amount as string to match Uint128 format
+    const amount = 123456789; // Optional amount as string to match Uint128 format
   
     if (!walletAddress) {
       console.error('Wallet address is empty.');
@@ -64,16 +67,15 @@ const Propose: NextPage = () => {
     try {
       const executeMsg = {
         propose: {
-          title,
-          description,
-          recipient: recipient ? recipient : undefined, // Include only if recipient is provided
-          amount: amount ? { amount, denom: "utest" } : undefined,
+          title: title, // Using the state variable directly.
+          description: description, // Using the state variable directly.
+          // Include recipient and amount if necessary, otherwise, they can be omitted or set to null.
         }
       };
   
 
-    const response = await signingClient?.execute(walletAddress, contractAddress, executeMsg, fee);
-  
+      const response = await signingClient?.execute(walletAddress, contractAddress, executeMsg, fee);
+   
       console.log('Execute Response:', response);
     } catch (error) {
       console.error('Error executing contract:', error);

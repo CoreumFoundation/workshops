@@ -11,7 +11,7 @@ import { CosmWasmClient, SigningCosmWasmClient, SigningCosmWasmClientOptions} fr
 const PUBLIC_CHAIN_NAME = process.env.NEXT_PUBLIC_CHAIN_NAME
 const PUBLIC_STAKING_DENOM = process.env.NEXT_PUBLIC_STAKING_DENOM || ''
 
-const contractAddress = 'testcore16xyl4nnjf907md4a6jh45qdauzgfm57l66fnngayrg8m4t3y9peshvrj3s'; 
+const contractAddress = 'testcore1rt5khxlnt9yh0wqwdwvdu0y9lfheapx3jh6w6hqav6782fr3xedsyywkxl'; 
 
 const Vote: NextPage = () => {
   const {walletAddress, signingClient} = useSigningClient()
@@ -157,7 +157,7 @@ const Vote: NextPage = () => {
     try {
       const executeMsg = { 
         vote: { 
-          proposal_id: proposalId, 
+          proposal_id: parseInt(proposalId, 10),
           approve 
         } 
       };
