@@ -7,6 +7,7 @@ import { StdFee } from '@cosmjs/amino';
 import {convertDenomToMicroDenom, convertFromMicroDenom, convertMicroDenomToDenom,} from 'util/conversion'
 
 import { CosmWasmClient, SigningCosmWasmClient, SigningCosmWasmClientOptions} from '@cosmjs/cosmwasm-stargate';
+import { Any } from 'coreum/proto-ts/google/protobuf/any'
 
 const PUBLIC_CHAIN_NAME = process.env.NEXT_PUBLIC_CHAIN_NAME
 const PUBLIC_STAKING_DENOM = process.env.NEXT_PUBLIC_STAKING_DENOM || ''
@@ -26,7 +27,7 @@ const Vote: NextPage = () => {
   const [vote, setVote] = useState('')
   const [queryProposalId, setQueryProposalId] = useState('');
 
-  const [proposal, setProposal] = useState([]);
+  const [proposal, setProposal] = useState<any[]>([]);
 
 
   const [cwClient, setCwClient] = useState<CosmWasmClient | null>(null);
@@ -38,7 +39,7 @@ const Vote: NextPage = () => {
     gas: "1000000",
   };
 
-  const handleVoteSubmit = async (e) => {
+  const handleVoteSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
   
     if (!voteId || !vote) {
@@ -129,7 +130,7 @@ const Vote: NextPage = () => {
   };
 
   //query one proposal 
-  const queryProposal = async (proposalId) => {
+  const queryProposal = async (proposalId: string) => {
     if (!cwClient) return;
     try {
       const queryMsg = { get_proposal: { proposal_id: 0 } };
@@ -145,7 +146,7 @@ const Vote: NextPage = () => {
   };
 
   
-  const voted = async (proposalId, approve) => {
+  const voted = async (proposalId: string, approve: boolean) => {
     // Hardcoded amount, represented as a string to match the Uint128 format expected by the contract
     //const amount = "1"; // This is just a placeholder
 
