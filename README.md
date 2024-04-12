@@ -54,3 +54,27 @@ For detailed explanations and recordings of these workshops, visit the [Coreum W
 ## Contributing
 
 We welcome contributions! If you have suggestions or want to contribute to the workshop materials, please feel free to submit pull requests or raise issues.
+
+### 3. [DAO Web Development on Coreum](./IBCTransfer_WebApp_Development/)
+
+This repository is the end product of the DAO WebApp Development Workshop, where we will build a dao platform for proposing new workshops and then voting on those workshops on the Coreum blockchain.
+
+Feel free to clone, edit and play with the code before, during and after the workshop.👨‍💻
+
+## Workshop Overview
+
+This workshop is designed to take you through the steps of creating a dao that interacts with the Coreum blockchain. Participants will gain hands-on experience with Create Coreum App, CosmoKit, CosmWasm and CosmJS. 
+
+## DAO Platform Explanation 
+
+This DAO allows people to propose a workshop and then have that workshop be voted on, using Coreum blockchain. Each vote has a 2 min lifespan before it is finalized. The results of that vote are then displayed. 
+
+## Learning Objectives
+
+By the end of this workshop, you will be able to:
+
+- Understand the architecture of a DApp.
+- Connect a DApp to the Coreum blockchain.
+- Interact with CosmWasm contracts via a UI frontend.
+- Understand how a DAO contract works on Coreum Blockchain
+- Utilize CosmJS handle blockchain transactions.
