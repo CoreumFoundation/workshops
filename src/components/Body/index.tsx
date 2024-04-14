@@ -13,7 +13,6 @@ import { Coin } from "coreum-js/dist/main/cosmos/base/v1beta1/coin";
 import { Height } from "cosmjs-types/ibc/core/client/v1/client";
 import Long from "long";
 import crypto from 'crypto'; // Import crypto module for SHA256 hashing
-import { motion } from 'framer-motion';
 
 
 
@@ -21,6 +20,25 @@ import { motion } from 'framer-motion';
 
 
 function SendFTWithTheme() {
+  const [response, setResponse] = useState<any>("");
+  const [error, setError] = useState<any>("");
+
+  const [receiver, setReceiver] = useState("");
+  const [amount, setAmount] = useState<string>("");
+  const [denom, setDenom] = useState("");
+  const[IBCDenom, setIBCDenom] = useState("");
+  const [hashValue, setHashValue] = useState(""); // State for hash value
+
+
+  const [isIBCEnable, setIBCEnable] = useState(false);
+
+  const chainContext = useChain(chainName);
+  const walletAddress = chainContext.address ?? "";
+
+  const fee: StdFee = {
+    amount: [{ denom: "ucore", amount: "6084" }],
+    gas: "120000",
+  };
   const symbols = ["COREUM", "ATOM", "OSMO", "DYDX", "EVMOS", "KAVA", "SEI"];
 
   // const dropdownList = symbols.map((symbol) => {
@@ -66,25 +84,6 @@ function SendFTWithTheme() {
   function classNames(...classes) {
     return classes.filter(Boolean).join(" ");
   }
-  const [response, setResponse] = useState<any>("");
-  const [error, setError] = useState<any>("");
-
-  const [receiver, setReceiver] = useState("");
-  const [amount, setAmount] = useState<string>("");
-  const [denom, setDenom] = useState("");
-  const[IBCDenom, setIBCDenom] = useState("");
-  const [hashValue, setHashValue] = useState(""); // State for hash value
-
-
-  const [isIBCEnable, setIBCEnable] = useState(false);
-
-  const chainContext = useChain(chainName);
-  const walletAddress = chainContext.address ?? "";
-
-  const fee: StdFee = {
-    amount: [{ denom: "ucore", amount: "6084" }],
-    gas: "120000",
-  };
 
   const [selectedChain, setSelectedChain] = useState(IBCEnableChains[0]);
 
@@ -108,7 +107,7 @@ function SendFTWithTheme() {
 
 
   // Function to compute SHA256 hash
-const hash = (input) => {
+const hash = (input : any) => {
   return crypto.createHash('sha256').update(input).digest('hex');
 };
 
@@ -339,4 +338,3 @@ console.log("Selected Chain:", selectedChain);
   );
 }
 export default SendFTWithTheme;
-

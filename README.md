@@ -1,5 +1,5 @@
 # IBC Workshops
-![IBC](./public/IBC.pngIBC)
+![IBC](./public/IBC.png)
 
 Welcome to our workshop on Inter-Blockchain Communication (IBC) transfers, a revolutionary technology enabling secure and reliable data and value exchange between different blockchain networks. ⁤⁤IBC is a protocol that allows independent, sovereign blockchains to communicate and transact with each other, thus creating an interconnected ecosystem of blockchains. ⁤
 
