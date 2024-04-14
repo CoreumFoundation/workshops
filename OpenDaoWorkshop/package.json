@@ -1,0 +1,30 @@
+{
+  "name": "coreum-web-app-starter",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint && prettier --check .",
+    "prettier:write": "prettier --write ."
+  },
+  "dependencies": {
+    "@cosmjs/cosmwasm-stargate": "^0.28.4",
+    "daisyui": "^2.14.3",
+    "js-sha256": "^0.9.0",
+    "next": "12.1.6",
+    "react": "18.1.0",
+    "react-dom": "18.1.0"
+  },
+  "devDependencies": {
+    "@types/react": "18.0.9",
+    "autoprefixer": "^10.4.7",
+    "eslint": "8.15.0",
+    "eslint-config-next": "12.1.6",
+    "postcss": "^8.4.13",
+    "prettier": "^2.6.2",
+    "tailwindcss": "^3.0.24",
+    "typescript": "4.6.4"
+  }
+}

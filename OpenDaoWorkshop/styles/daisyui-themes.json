@@ -1,0 +1,24 @@
+{
+  "coreumDark": {
+    "primary": "#25d695",
+    "primary-focus": "#25d695",
+    "primary-content": "#808080",
+    "secondary": "#9f9f9f",
+    "secondary-focus": "#959595",
+    "secondary-content": "#2b303b",
+    "accent": "#7171f0",
+    "accent-focus": "#6767E6",
+    "accent-content": "#fff",
+    "neutral": "#3d4451",
+    "neutral-focus": "#2a2e37",
+    "neutral-content": "#fff",
+    "base-100": "#2b303b",
+    "base-200": "#22212c",
+    "base-300": "#1d1e25",
+    "base-content": "#fff",
+    "info": "#71f0e9",
+    "success": "#65f09a",
+    "warning": "#f0df95",
+    "error": "#ff9595"
+  }
+}
