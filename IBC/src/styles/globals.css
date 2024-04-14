@@ -1,0 +1,55 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  background-color: #0B161E;
+
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+  }
+}
+
+body {
+  color: rgb(var(--foreground-rgb));
+
+  background-color: #0B161E;
+}
+
+@layer utilities {
+  .bg-gradient-teal {
+    background: linear-gradient(225deg, #25D695 0%, #179B69 100%);
+  }
+
+  .bg-gradient-green {
+    background: linear-gradient(0deg, #25D695, #25D695), linear-gradient(225deg, rgba(37, 214, 149, 0.1) 0%, rgba(23, 155, 105, 0.1) 100%);
+  }
+
+  .bg-gradient-green-card {
+    backdrop-filter: blur(5px);
+    background: linear-gradient(270deg, rgba(94, 103, 115, 0.15) 0%, rgba(94, 103, 115, 0.00) 100%);
+  }
+
+  .bg-gradient-green-card-button {
+    background: linear-gradient(225deg, rgba(37, 214, 149, 0.10) 0%, rgba(23, 155, 105, 0.10) 100%);
+  }
+
+  .bg-image-main {
+    background-image: url(/background.png);
+    background-color: transparent;
+    background-repeat: no-repeat;
+    background-position: top;
+    background-origin: border-box;
+    background-size: cover;
+  }
+
+  .shadow-custom {
+    box-shadow: 0px 0px 40px rgba(0, 0, 0, 0.4);
+  }
+
+  .row-gap-4 {
+    row-gap: 16px;
+  }
+}
