@@ -52,7 +52,7 @@ For detailed explanations and recordings of these workshops, visit the [Coreum W
 
 We welcome contributions! If you have suggestions or want to contribute to the workshop materials, please feel free to submit pull requests or raise issues.
 
-### 2. [DAO WEB Development on Coreum](./DAO_WebApp_Development/)
+### 3. [DAO WEB Development on Coreum](./DAO_WebApp_Development/)
 
 #### What You Will Learn
 This workshop is designed to take you through the steps of creating a dao that interacts with the Coreum blockchain. Participants will gain hands-on experience with Create Coreum App, CosmoKit, CosmWasm and CosmJS.
