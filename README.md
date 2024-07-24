@@ -32,21 +32,17 @@ For detailed explanations and recordings of these workshops, visit the [Coreum W
 
 ### 2. [IBC Web Development on Coreum](./IBC/)
 
-In this comprehensive workshop, participants will dive into the world of decentralized application development using the Create Coreum App Npm package. This workshop is tailored for developers looking to streamline their web development process and integrate with the Coreum Blockchain seamlessly.
+This workshop dives deep into Inter-Blockchain Communication (IBC) on Coreum, equipping developers with the skills to facilitate communication between Coreum and other compatible blockchains.
 
 #### What You Will Learn
 
-- Setting up a full-stack web development environment tailored for Coreum.
-- Effective interaction and signing of Coreum custom messages using web-based wallets.
-- Step-by-step guidance on creating a IBC transfer and denom construction.
-- Hands-on experience with IBC in the browser, including transfering FT token to other chains, denom construction
+- Tailored Development Environment: Set up your local environment with the necessary tools for building IBC DApp.
+- Mastering IBC: Gain hands-on experience with IBC functionalities in the browser, including crafting IBC transfers, constructing denoms, and transferring fungible tokens (FTs) across chains.
 
 #### Prerequisites
 
 - Basic knowledge of TypeScript and React.
 - One of the following wallets installed: Keplr, Leap, Cosmostation, or Frontier.
-
-_More workshops will be added as they become available._
 
 ## Workshop Recordings and Details
 
