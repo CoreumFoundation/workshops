@@ -3,3 +3,9 @@ Boostrap_WebApp_Development/.next/*
 Boostrap_WebApp_Development/.DS_Store
 .DS_Store
 
+CoreumV4_Extension_IBC_Hooks/coinflip-fe-next/.eslintrc.json
+CoreumV4_Extension_IBC_Hooks/coinflip-fe-next/package-lock.json
+CoreumV4_Extension_IBC_Hooks/coinflip-fe-next/src/module/*
+
+CoreumV4_Extension_IBC_Hooks/ibchooks-secretVRF/ibc-hooks-contract/node/package-lock.json
+CoreumV4_Extension_IBC_Hooks/ibchooks-secretVRF/ibc-hooks-contract/Cargo.lock
