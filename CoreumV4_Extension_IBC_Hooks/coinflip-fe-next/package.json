@@ -1,0 +1,42 @@
+{
+  "name": "coinflip-fe-next",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@cosmos-kit/cosmostation": "^2.11.2",
+    "@cosmos-kit/frontier": "^2.10.2",
+    "@cosmos-kit/keplr": "^2.12.2",
+    "@cosmos-kit/keplr-extension": "^2.12.2",
+    "@cosmos-kit/leap": "^2.12.2",
+    "@cosmos-kit/react": "^2.18.0",
+    "@headlessui/react": "^2.1.2",
+    "@react-three/drei": "^9.109.1",
+    "@react-three/fiber": "^8.16.8",
+    "@splinetool/react-spline": "^4.0.0",
+    "@splinetool/runtime": "^1.8.9",
+    "@tweenjs/tween.js": "^23.1.2",
+    "chain-registry": "^1.63.31",
+    "coreum-js": "^2.12.0",
+    "next": "14.2.5",
+    "react": "^18",
+    "react-dom": "^18",
+    "react-toastify": "^10.0.5",
+    "three": "^0.166.1",
+    "uuid": "^10.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20",
+    "@types/react": "^18",
+    "@types/react-dom": "^18",
+    "eslint-config-next": "14.2.5",
+    "postcss": "^8",
+    "tailwindcss": "^3.4.1",
+    "typescript": "^5"
+  }
+}
