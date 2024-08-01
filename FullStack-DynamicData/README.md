@@ -36,6 +36,8 @@ Before attending the workshop, please ensure you have the following:
 
 2. **Clone the Repository:**
    ```bash
-   git clone https://github.com/Jahanzeb9999/Cosmwasm-FullStack.git
-   cd Cosmwasm-FullStack/backend
+   git clone https://github.com/your-repo/FullStack-DynamicData.git
+   cd FullStack-DynamicData
+   npm install
+   npm run start
 
