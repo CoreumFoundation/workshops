@@ -1,0 +1,56 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "ExecuteMsg",
+  "oneOf": [
+    {
+      "type": "object",
+      "required": [
+        "request_random"
+      ],
+      "properties": {
+        "request_random": {
+          "type": "object",
+          "required": [
+            "job_id"
+          ],
+          "properties": {
+            "job_id": {
+              "type": "string"
+            }
+          },
+          "additionalProperties": false
+        }
+      },
+      "additionalProperties": false
+    },
+    {
+      "type": "object",
+      "required": [
+        "receive_random"
+      ],
+      "properties": {
+        "receive_random": {
+          "type": "object",
+          "required": [
+            "job_id",
+            "randomness",
+            "signature"
+          ],
+          "properties": {
+            "job_id": {
+              "type": "string"
+            },
+            "randomness": {
+              "type": "string"
+            },
+            "signature": {
+              "type": "string"
+            }
+          },
+          "additionalProperties": false
+        }
+      },
+      "additionalProperties": false
+    }
+  ]
+}
