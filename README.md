@@ -75,20 +75,6 @@ For detailed explanations and recordings of these workshops, visit the [Coreum W
 
 We welcome contributions! If you have suggestions or want to contribute to the workshop materials, please feel free to submit pull requests or raise issues.
 
-### 3. [DAO WEB Development on Coreum](./DAO_WebApp_Development/)
-
-#### What You Will Learn
-This workshop is designed to take you through the steps of creating a dao that interacts with the Coreum blockchain. Participants will gain hands-on experience with Create Coreum App, CosmoKit, CosmWasm and CosmJS.
-
-
-### DAO Platform Explanation
-This DAO allows people to propose a workshop and then have that workshop be voted on, using Coreum blockchain. Each vote has a 2 min lifespan before it is finalized. The results of that vote are then displayed.
-
-### Learning Objectives
-By the end of this workshop, you will be able to:
-
-### Understand the architecture of a DApp.
-
 ### 3. [DAO WEB Development on Coreum](./OpenDaoWorkshop/)
 
 #### What You Will Learn
@@ -110,7 +96,7 @@ Interact with CosmWasm contracts via a UI frontend.
 Understand how a DAO contract works on Coreum Blockchain
 Utilize CosmJS handle blockchain transactions.
 
-### Coreum v4 Update - IBC Hooks and Smart Tokens Extension
+### 4.  Coreum v4 Update - IBC Hooks and Smart Tokens Extension
 
 [Smart Tokens](https://docs.coreum.dev/docs/modules/coreum-fungible-token) just got smarter! With the latest Coreum v4 update, developers can now create more versatile and powerful Smart Tokens.
 
@@ -128,7 +114,7 @@ Discover the latest innovations in Smart Tokens as we guide you through creating
 - Hands-on experience with Cored CLI.
 - Generate TypeScript SDKs for your CosmWasm smart contracts
 
-### [FullStack Dynamic Data](./FullStackDynamicData/)
+### 5. [FullStack Dynamic Data](./FullStackDynamicData/)
 
 #### What You Will Learn
 This workshop is designed to take you through the steps of creating a dynamic full-stack application that interacts with the Coreum blockchain. Participants will gain hands-on experience with Create Coreum App, CosmoKit, CosmWasm Contracts, CosmJS, Golang, Building http servers, integration and Next.js.
