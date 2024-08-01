@@ -128,7 +128,7 @@ Discover the latest innovations in Smart Tokens as we guide you through creating
 - Hands-on experience with Cored CLI.
 - Generate TypeScript SDKs for your CosmWasm smart contracts
 
-### .[FullStack Dynamic Data](./FullStackDynamicData/)
+### [FullStack Dynamic Data](./FullStackDynamicData/)
 
 #### What You Will Learn
 This workshop is designed to take you through the steps of creating a dynamic full-stack application that interacts with the Coreum blockchain. Participants will gain hands-on experience with Create Coreum App, CosmoKit, CosmWasm Contracts, CosmJS, Golang, Building http servers, integration and Next.js.
