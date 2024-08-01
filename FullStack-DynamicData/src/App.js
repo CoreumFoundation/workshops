@@ -3,6 +3,7 @@ import { createNFTClass, mintNFT, updateNFTData } from './api';
 import './index.css'; // Ensure this imports Tailwind CSS
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import coreumLogo from './assets/coreum-logo.png'; // Import the Coreum logo
 
 function App() {
   const [activeSection, setActiveSection] = useState('createClass');
@@ -20,7 +21,6 @@ function App() {
   });
 
   const [updateData, setUpdateData] = useState({
-    classID: '',
     nftID: '',
     name: '',
     description: ''
@@ -68,23 +68,23 @@ function App() {
             <input
               type="text"
               placeholder="Class Symbol"
-              className="mb-3 p-3 w-full border border-gray-300 rounded-lg"
+              className="mb-3 p-3 w-full border border-gray-300 rounded-lg text-black"
               onChange={(e) => setClassData({ ...classData, classSymbol: e.target.value })}
             />
             <input
               type="text"
               placeholder="Class Name"
-              className="mb-3 p-3 w-full border border-gray-300 rounded-lg"
+              className="mb-3 p-3 w-full border border-gray-300 rounded-lg text-black"
               onChange={(e) => setClassData({ ...classData, className: e.target.value })}
             />
             <input
               type="text"
               placeholder="Class Description"
-              className="mb-6 p-3 w-full border border-gray-300 rounded-lg"
+              className="mb-6 p-3 w-full border border-gray-300 rounded-lg text-black"
               onChange={(e) => setClassData({ ...classData, classDescription: e.target.value })}
             />
             <button
-              className="w-full bg-blue-500 text-white py-3 rounded-lg font-semibold hover:bg-blue-600"
+              className="w-full bg-greenish text-white py-3 rounded-lg font-semibold hover:bg-green-700"
               onClick={handleCreateClass}
             >
               Create Class
@@ -98,29 +98,29 @@ function App() {
             <input
               type="text"
               placeholder="Class Symbol"
-              className="mb-3 p-3 w-full border border-gray-300 rounded-lg"
+              className="mb-3 p-3 w-full border border-gray-300 rounded-lg text-black"
               onChange={(e) => setNFTData({ ...nftData, classSymbol: e.target.value })}
             />
             <input
               type="text"
               placeholder="NFT ID"
-              className="mb-3 p-3 w-full border border-gray-300 rounded-lg"
+              className="mb-3 p-3 w-full border border-gray-300 rounded-lg text-black"
               onChange={(e) => setNFTData({ ...nftData, nftID: e.target.value })}
             />
             <input
               type="text"
               placeholder="Name"
-              className="mb-3 p-3 w-full border border-gray-300 rounded-lg"
+              className="mb-3 p-3 w-full border border-gray-300 rounded-lg text-black"
               onChange={(e) => setNFTData({ ...nftData, name: e.target.value })}
             />
             <input
               type="text"
               placeholder="Description"
-              className="mb-6 p-3 w-full border border-gray-300 rounded-lg"
+              className="mb-6 p-3 w-full border border-gray-300 rounded-lg text-black"
               onChange={(e) => setNFTData({ ...nftData, description: e.target.value })}
             />
             <button
-              className="w-full bg-green-500 text-white py-3 rounded-lg font-semibold hover:bg-green-600"
+              className="w-full bg-greenish text-white py-3 rounded-lg font-semibold hover:bg-green-700"
               onClick={handleMintNFT}
             >
               Mint NFT
@@ -134,29 +134,29 @@ function App() {
             <input
               type="text"
               placeholder="Class ID"
-              className="mb-3 p-3 w-full border border-gray-300 rounded-lg"
+              className="mb-3 p-3 w-full border border-gray-300 rounded-lg text-black"
               onChange={(e) => setUpdateData({ ...updateData, classID: e.target.value })}
             />
             <input
               type="text"
               placeholder="NFT ID"
-              className="mb-3 p-3 w-full border border-gray-300 rounded-lg"
+              className="mb-3 p-3 w-full border border-gray-300 rounded-lg text-black"
               onChange={(e) => setUpdateData({ ...updateData, nftID: e.target.value })}
             />
             <input
               type="text"
               placeholder="Name"
-              className="mb-3 p-3 w-full border border-gray-300 rounded-lg"
+              className="mb-3 p-3 w-full border border-gray-300 rounded-lg text-black"
               onChange={(e) => setUpdateData({ ...updateData, name: e.target.value })}
             />
             <input
               type="text"
               placeholder="Description"
-              className="mb-6 p-3 w-full border border-gray-300 rounded-lg"
+              className="mb-6 p-3 w-full border border-gray-300 rounded-lg text-black"
               onChange={(e) => setUpdateData({ ...updateData, description: e.target.value })}
             />
             <button
-              className="w-full bg-yellow-500 text-white py-3 rounded-lg font-semibold hover:bg-yellow-600"
+              className="w-full bg-greenish text-white py-3 rounded-lg font-semibold hover:bg-green-700"
               onClick={handleUpdateNFTData}
             >
               Update NFT Data
@@ -169,25 +169,33 @@ function App() {
   };
 
   return (
-    <div className="min-h-screen bg-cover bg-center flex flex-col items-center py-10" style={{ backgroundImage: 'url("/background.jpg")' }}>
-      <ToastContainer />
-      <div className="w-full bg-green-800 text-white py-2">
-        <marquee className="text-xl font-semibold">updateDynamicNftData</marquee>
+    <div className="min-h-screen bg-greenish-black flex flex-col items-center justify-center text-white">
+      <ToastContainer position="top-right" />
+      <div className="w-full bg-greenish text-white py-2 flex items-center justify-between px-4">
+        <img src={coreumLogo} alt="Coreum Logo" className="h-10 mr-4" />
+        <marquee className="text-xl font-semibold">#BuildOnCoreum</marquee>
       </div>
-      <h1 className="text-5xl font-extrabold text-green-900 mb-10 drop-shadow-lg">NFT Management</h1>
-      
+      <h1 className="text-5xl font-extrabold text-greenish mb-10 drop-shadow-lg">NFT Management</h1>
       <div className="flex mb-10 space-x-4">
-        <button className={`py-2 px-4 rounded-lg font-semibold ${activeSection === 'createClass' ? 'bg-blue-500 text-white' : 'bg-gray-200 text-gray-700'}`} onClick={() => setActiveSection('createClass')}>
+        <button
+          className={`py-2 px-4 rounded-lg font-semibold ${activeSection === 'createClass' ? 'bg-greenish text-white' : 'bg-gray-200 text-gray-700'}`}
+          onClick={() => setActiveSection('createClass')}
+        >
           Create Class
         </button>
-        <button className={`py-2 px-4 rounded-lg font-semibold ${activeSection === 'mintNFT' ? 'bg-green-500 text-white' : 'bg-gray-200 text-gray-700'}`} onClick={() => setActiveSection('mintNFT')}>
+        <button
+          className={`py-2 px-4 rounded-lg font-semibold ${activeSection === 'mintNFT' ? 'bg-greenish text-white' : 'bg-gray-200 text-gray-700'}`}
+          onClick={() => setActiveSection('mintNFT')}
+        >
           Mint NFT
         </button>
-        <button className={`py-2 px-4 rounded-lg font-semibold ${activeSection === 'updateNFT' ? 'bg-yellow-500 text-white' : 'bg-gray-200 text-gray-700'}`} onClick={() => setActiveSection('updateNFT')}>
+        <button
+          className={`py-2 px-4 rounded-lg font-semibold ${activeSection === 'updateNFT' ? 'bg-greenish text-white' : 'bg-gray-200 text-gray-700'}`}
+          onClick={() => setActiveSection('updateNFT')}
+        >
           Update NFT
         </button>
       </div>
-
       {renderSection()}
     </div>
   );

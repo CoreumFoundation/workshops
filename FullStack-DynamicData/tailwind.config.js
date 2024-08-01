@@ -8,6 +8,8 @@ module.exports = {
         green: {
           800: '#22543d', // You can customize these colors as needed
           900: '#1c4532',
+          'greenish-black': '#0A1D1D',
+          'coreum-green': '#00C896',
         },
       },
     },
