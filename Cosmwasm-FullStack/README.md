@@ -32,7 +32,7 @@ Before attending the workshop, please ensure you have the following:
 To get started with the workshop, clone this repository and install the dependencies:
 
 ```bash
-git clone https://github.com/your-repo/bootstrap-webapp-development-workshop.git
-cd bootstrap-webapp-development-workshop
+git clone https://github.com/your-repo/Cosmwasm-FullStack.git
+cd Cosmwasm-FullStack
 npm install
 npm run dev
