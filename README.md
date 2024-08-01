@@ -81,13 +81,13 @@ This workshop is designed to take you through the steps of creating a dynamic fu
 This FullStackDynamicData DApp is designed to allow users to dynamically update NFT data on the Coreum blockchain. The workshop will guide participants through the comprehensive steps of building and integrating a full-stack application, covering both backend and frontend development, as well as smart contract interactions.
 
 ### Prerequisites:
-Basic understanding of blockchain concepts
-Familiarity with JavaScript/TypeScript, Rust and Golang
-Basic knowledge of React/Next.js
-Installed tools: Golang, Docker, Cosmwasm
+- Basic understanding of blockchain concepts
+- Familiarity with JavaScript/TypeScript, Rust and Golang
+- Basic knowledge of React/Next.js
+- Installed tools: Golang, Docker, Cosmwasm
 
 ### Understand the architecture of a DApp.
-Connect a DApp to the Coreum blockchain.
-Interact with CosmWasm contracts via a UI frontend.
-Understand how a FullstackDynamicData Golang on Coreum Blockchain
-Utilize CosmJS handle blockchain transactions.
+- Connect a DApp to the Coreum blockchain.
+- Interact with CosmWasm contracts via a UI frontend.
+- Understand how a FullstackDynamicData Golang on Coreum Blockchain
+- Utilize CosmJS handle blockchain transactions.
