@@ -37,27 +37,6 @@ In this comprehensive workshop, participants will dive into the world of decentr
 - Setting up a full-stack web development environment tailored for Coreum.
 - Effective interaction and signing of Coreum custom messages using web-based wallets.
 - Step-by-step guidance on creating a IBC transfer and denom construction.
-- Hands-on experience with IBC  in the browser, including transfering FT token to other chains, denom construction
-
-#### Prerequisites
-- Basic knowledge of TypeScript and React.
-- One of the following wallets installed: Keplr, Leap, Cosmostation, or Frontier.
-
-_More workshops will be added as they become available._
-
-## Workshop Recordings and Details
-
-For detailed explanations and recordings of these workshops, visit the [Coreum Workshops](https://www.coreum.com/workshops) page on the Coreum website.
-
-
-### 2. [IBC Web Development on Coreum](./IBCTransfer_WebApp_Development/)
-In this comprehensive workshop, participants will dive into the world of decentralized application development using the Create Coreum App Npm package. This workshop is tailored for developers looking to streamline their web development process and integrate with the Coreum Blockchain seamlessly.
-
-#### What You Will Learn
-- Setting up a full-stack web development environment tailored for Coreum.
-- Effective interaction and signing of Coreum custom messages using web-based wallets.
-- Step-by-step guidance on creating a IBC transfer and denom construction.
-- Hands-on experience with IBC  in the browser, including transfering FT token to other chains, denom construction
 - Hands-on experience with IBC in the browser, including transfering FT token to other chains, denom construction
 
 #### Prerequisites
@@ -74,20 +53,6 @@ For detailed explanations and recordings of these workshops, visit the [Coreum W
 ## Contributing
 
 We welcome contributions! If you have suggestions or want to contribute to the workshop materials, please feel free to submit pull requests or raise issues.
-
-### 3. [DAO WEB Development on Coreum](./DAO_WebApp_Development/)
-
-#### What You Will Learn
-This workshop is designed to take you through the steps of creating a dao that interacts with the Coreum blockchain. Participants will gain hands-on experience with Create Coreum App, CosmoKit, CosmWasm and CosmJS.
-
-
-### DAO Platform Explanation
-This DAO allows people to propose a workshop and then have that workshop be voted on, using Coreum blockchain. Each vote has a 2 min lifespan before it is finalized. The results of that vote are then displayed.
-
-### Learning Objectives
-By the end of this workshop, you will be able to:
-
-### Understand the architecture of a DApp.
 
 ### 3. [DAO WEB Development on Coreum](./OpenDaoWorkshop/)
 
@@ -127,24 +92,3 @@ Discover the latest innovations in Smart Tokens as we guide you through creating
 - Step-by-step guidance on creating a cross-chain DApp using IBC Hooks.
 - Hands-on experience with Cored CLI.
 - Generate TypeScript SDKs for your CosmWasm smart contracts
-
-### [FullStack Dynamic Data](./FullStackDynamicData/)
-
-#### What You Will Learn
-This workshop is designed to take you through the steps of creating a dynamic full-stack application that interacts with the Coreum blockchain. Participants will gain hands-on experience with Create Coreum App, CosmoKit, CosmWasm Contracts, CosmJS, Golang, Building http servers, integration and Next.js.
-
-
-### FullStackDynamicData Platform Explanation
-This FullStackDynamicData DApp is designed to allow users to dynamically update NFT data on the Coreum blockchain. The workshop will guide participants through the comprehensive steps of building and integrating a full-stack application, covering both backend and frontend development, as well as smart contract interactions.
-
-### Prerequisites:
-- Basic understanding of blockchain concepts
-- Familiarity with JavaScript/TypeScript, Rust and Golang
-- Basic knowledge of React/Next.js
-- Installed tools: Golang, Docker, Cosmwasm
-
-### Understand the architecture of a DApp.
-- Connect a DApp to the Coreum blockchain.
-- Interact with CosmWasm contracts via a UI frontend.
-- Understand how a FullstackDynamicData Golang on Coreum Blockchain
-- Utilize CosmJS handle blockchain transactions.
