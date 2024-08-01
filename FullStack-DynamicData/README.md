@@ -1,5 +1,5 @@
 # Dynamic NFT Data Updater
-![WebappUI](./public/coreum-logo.png)
+![WebappUI](./public/mint.png)
 
 
 ## Overview
