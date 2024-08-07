@@ -30,8 +30,8 @@ import (
 
 const (
 	// Replace it with your own mnemonic
-	senderMnemonic    = "rough olympic update gloom play squirrel license pride cup hazard onion effort"
-	recipientMnemonic = "provide dose weekend drop goose patient mimic grape relax mule custom blanket"
+	senderMnemonic    = "your sender mnemonic"
+	recipientMnemonic = "your recipient mnemonic"
 
 	chainID       = constant.ChainIDTest
 	addressPrefix = constant.AddressPrefixTest

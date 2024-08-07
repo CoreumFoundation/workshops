@@ -1,0 +1,18 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import "tailwindcss/tailwind.css";
+
+/* Add custom colors */
+@layer utilities {
+  .bg-greenish-black {
+    background-color: #0a0f0a; /* Dark greenish-black */
+  }
+  .text-greenish {
+    color: #38a169; /* Green color for text */
+  }
+  .bg-greenish {
+    background-color: #1f3d1f; /* Background color for buttons and header */
+  }
+}
