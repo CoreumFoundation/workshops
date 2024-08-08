@@ -1,0 +1,66 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --foreground-rgb: 255, 255, 255;
+  --background-start-rgb: 0, 0, 0;
+  --background-end-rgb: 0, 0, 0;
+}
+
+body {
+  color: rgb(var(--foreground-rgb));
+  background: linear-gradient(
+      to bottom,
+      transparent,
+      rgb(var(--background-end-rgb))
+    )
+    rgb(var(--background-start-rgb));
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+.bg-footer {
+  background: #080908;
+}
+
+.bg-main {
+  background: #080908;
+}
+
+.text-grey-gradient {
+  background: linear-gradient(180deg, #FFF 0%, #5E6773 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.bg-green-gradient {
+  background: linear-gradient(180deg, #25D695 0%, #046C44 100%);
+}
+
+.text-green-gradient {
+  background: linear-gradient(180deg, #25D695 0%, #046C44 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.card {
+  border-radius: 16px;
+  background: linear-gradient(90deg, rgba(69, 69, 69, 0.10) 0%, rgba(255, 255, 255, 0.10) 100%);
+  box-shadow: 2px 0px 8px 0px rgba(0, 0, 0, 0.16) inset;
+  backdrop-filter: blur(5px);
+}
+
+.bg-sidebar-active {
+  background: rgba(37, 214, 149, 0.05);
+}
+
+.bg-black-gradient {
+  background: linear-gradient(180deg, #000000 0%, #434343 100%);
+}

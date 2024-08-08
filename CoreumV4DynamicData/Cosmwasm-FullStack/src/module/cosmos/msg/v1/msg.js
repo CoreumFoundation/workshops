@@ -1,0 +1,3 @@
+/* eslint-disable */
+export const protobufPackage = "cosmos.msg.v1";
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoibXNnLmpzIiwic291cmNlUm9vdCI6IiIsInNvdXJjZXMiOlsiLi4vLi4vLi4vLi4vLi4vc3JjL2Nvc21vcy9tc2cvdjEvbXNnLnRzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBLG9CQUFvQjtBQUVwQixNQUFNLENBQUMsTUFBTSxlQUFlLEdBQUcsZUFBZSxDQUFDIn0=
