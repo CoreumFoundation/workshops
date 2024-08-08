@@ -109,7 +109,7 @@ This workshop is designed to take you through the steps of creating a dynamic fu
 - Understand how a FullstackDynamicData Golang on Coreum Blockchain
 - Utilize CosmJS handle blockchain transactions.
 
-### 5. [FullStack TokenClawback Data](./FullStackDynamicData/)
+### 6. [FullStack TokenClawback Data](./FullStackTokenClawbackData/)
 
 ### Overview
 The FullStack TokenClawback Data project is designed to manage and implement token clawback functionalities in a full-stack application environment. This project aims to provide a robust system for token creation, management, and clawback capabilities within a blockchain ecosystem.
