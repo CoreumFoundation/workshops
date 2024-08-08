@@ -97,10 +97,6 @@ Discover the latest innovations in Smart Tokens as we guide you through creating
 #### What You Will Learn
 This workshop is designed to take you through the steps of creating a dynamic full-stack application that interacts with the Coreum blockchain. Participants will gain hands-on experience with Create Coreum App, CosmoKit, CosmWasm Contracts, CosmJS, Golang, Building http servers, integration and Next.js.
 
-
-### FullStackDynamicData Platform Explanation
-This FullStackDynamicData DApp is designed to allow users to dynamically update NFT data on the Coreum blockchain. The workshop will guide participants through the comprehensive steps of building and integrating a full-stack application, covering both backend and frontend development, as well as smart contract interactions.
-
 ### Prerequisites:
 - Basic understanding of blockchain concepts
 - Familiarity with JavaScript/TypeScript, Rust and Golang
@@ -112,3 +108,19 @@ This FullStackDynamicData DApp is designed to allow users to dynamically update 
 - Interact with CosmWasm contracts via a UI frontend.
 - Understand how a FullstackDynamicData Golang on Coreum Blockchain
 - Utilize CosmJS handle blockchain transactions.
+
+### 5. [FullStack TokenClawback Data](./FullStackDynamicData/)
+
+### Overview
+The FullStack TokenClawback Data project is designed to manage and implement token clawback functionalities in a full-stack application environment. This project aims to provide a robust system for token creation, management, and clawback capabilities within a blockchain ecosystem.
+
+### Features
+- Token Creation: Create new tokens with specified parameters such as name, symbol, decimals, supply, image, description, and social links.
+- Token Management: Send token.
+- Clawback Functionality: Implement clawback mechanisms to revert tokens to the issuer in specific scenarios.
+
+### Understand the architecture of a DApp.
+- Connect a DApp to the Coreum blockchain.
+- Interact with GO backend Api interaction via a UI frontend.
+- Understand how a FullstackTokenClawback Golang on Coreum Blockchain
+- Utilize Axios to make different types of HTTP requests such as GET,POST, PUT, DELETE
