@@ -74,7 +74,7 @@ Interact with CosmWasm contracts via a UI frontend.
 Understand how a DAO contract works on Coreum Blockchain
 Utilize CosmJS handle blockchain transactions.
 
-### 4.  [Coreum v4 Update - IBC Hooks and Smart Tokens Extension](./IBC Hooks and Smart Tokens Extension/)
+### 4.  Coreum v4 Update - IBC Hooks and Smart Tokens Extension
 
 [Smart Tokens](https://docs.coreum.dev/docs/modules/coreum-fungible-token) just got smarter! With the latest Coreum v4 update, developers can now create more versatile and powerful Smart Tokens.
 
