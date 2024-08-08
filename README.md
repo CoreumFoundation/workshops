@@ -92,7 +92,7 @@ Discover the latest innovations in Smart Tokens as we guide you through creating
 - Hands-on experience with Cored CLI.
 - Generate TypeScript SDKs for your CosmWasm smart contracts
 
-### 5. [FullStack Dynamic Data](./FullStackDynamicData/)
+### 5. [FullStack Dynamic Data](./CoreumV4DynamicData/)
 
 #### What You Will Learn
 This workshop is designed to take you through the steps of creating a dynamic full-stack application that interacts with the Coreum blockchain. Participants will gain hands-on experience with Create Coreum App, CosmoKit, CosmWasm Contracts, CosmJS, Golang, Building http servers, integration and Next.js.
@@ -109,7 +109,7 @@ This workshop is designed to take you through the steps of creating a dynamic fu
 - Understand how a FullstackDynamicData Golang on Coreum Blockchain
 - Utilize CosmJS handle blockchain transactions.
 
-### 6. [FullStack TokenClawback Data](./FullStackTokenClawbackData/)
+### 6. [FullStack TokenClawback Data](./Coreum_v4Clawback/)
 
 ### Overview
 The FullStack TokenClawback Data project is designed to manage and implement token clawback functionalities in a full-stack application environment. This project aims to provide a robust system for token creation, management, and clawback capabilities within a blockchain ecosystem.
