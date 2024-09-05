@@ -28,14 +28,13 @@ In this comprehensive workshop, participants will dive into the world of decentr
 
 For detailed explanations and recordings of these workshops, visit the [Coreum Workshops](https://www.coreum.com/workshops) page on the Coreum website.
 
-### 2. [IBC Web Development on Coreum](./IBCTransfer_WebApp_Development/)
+### 2. [IBC Web Development on Coreum](./IBC/)
 In this comprehensive workshop, participants will dive into the world of decentralized application development using the Create Coreum App Npm package. This workshop is tailored for developers looking to streamline their web development process and integrate with the Coreum Blockchain seamlessly.
 
 #### What You Will Learn
 - Setting up a full-stack web development environment tailored for Coreum.
 - Effective interaction and signing of Coreum custom messages using web-based wallets.
 - Step-by-step guidance on creating a IBC transfer and denom construction.
-- Hands-on experience with IBC  in the browser, including transfering FT token to other chains, denom construction
 - Hands-on experience with IBC in the browser, including transfering FT token to other chains, denom construction
 
 #### Prerequisites
@@ -92,7 +91,7 @@ Discover the latest innovations in Smart Tokens as we guide you through creating
 - Hands-on experience with Cored CLI.
 - Generate TypeScript SDKs for your CosmWasm smart contracts
 
-### 5. [FullStack Dynamic Data](./FullStackDynamicData/)
+### 5. [FullStack Dynamic Data](./CoreumV4DynamicData/)
 
 #### What You Will Learn
 This workshop is designed to take you through the steps of creating a dynamic full-stack application that interacts with the Coreum blockchain. Participants will gain hands-on experience with Create Coreum App, CosmoKit, CosmWasm Contracts, CosmJS, Golang, Building http servers, integration and Next.js.
@@ -109,7 +108,7 @@ This workshop is designed to take you through the steps of creating a dynamic fu
 - Understand how a FullstackDynamicData Golang on Coreum Blockchain
 - Utilize CosmJS handle blockchain transactions.
 
-### 5. [FullStack TokenClawback Data](./FullStackDynamicData/)
+### 5. [FullStack TokenClawback Data](./Coreum_v4Clawback/)
 
 ### Overview
 The FullStack TokenClawback Data project is designed to manage and implement token clawback functionalities in a full-stack application environment. This project aims to provide a robust system for token creation, management, and clawback capabilities within a blockchain ecosystem.

@@ -36,7 +36,7 @@ Before attending the workshop, please ensure you have the following:
 
 2. **Clone the Repository:**
    ```bash
-   git clone https://github.com/Jahanzeb9999/tokenClawback.git
+   git clone https://github.com/yourUserName/tokenClawback.git
    cd tokenClawback/backend
    ```
 
