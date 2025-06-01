@@ -1,0 +1,55 @@
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #35F0D0;
+  --color-secondary: #F79D84;
+  --color-tertiary: #000000;
+  --color-quaternary: #000000;
+  --color-quinary: #000000;
+  --color-senary: #000000;
+  --color-septenary: #000000;
+}
+
+@theme {
+  --animate-background: background-move ease infinite;
+
+  @keyframes background-move {
+
+    0%,
+    100% {
+      background-position: 0% 50%;
+    }
+
+    50% {
+      background-position: 100% 50%;
+    }
+  }
+}
+
+body {
+  background-color: #1e1a78;
+  color: white;
+}
+/* bg-gradient-to-bl from-[#0f172a] via-[#1e1a78] to-[#0f172a] */
+:root {
+  --color-primary: #35F0D0;
+  --color-secondary: #F79D84;
+}
+
+/* Define Tailwind custom colors */
+.text-primary {
+  color: var(--color-primary);
+}
+
+.bg-primary {
+  background-color: var(--color-primary);
+}
+
+.text-secondary {
+  color: var(--color-secondary);
+}
+
+.bg-secondary {
+  background-color: var(--color-secondary);
+}
+
