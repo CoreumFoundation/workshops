@@ -71,7 +71,7 @@ Interact with CosmWasm contracts via a UI frontend.
 Understand how a DAO contract works on Coreum Blockchain
 Utilize CosmJS handle blockchain transactions.
 
-### Coreum v4 Update - IBC Hooks and Smart Tokens Extension
+### 4. [Coreum v4 Update - IBC Hooks and Smart Tokens Extension](./CoreumV4_Extension_IBC_Hooks/)
 
 [Smart Tokens](https://docs.coreum.dev/docs/modules/coreum-fungible-token) just got smarter! With the latest Coreum v4 update, developers can now create more versatile and powerful Smart Tokens.
 
@@ -79,7 +79,7 @@ Now, every time your tokens are sent or received, custom logic can be triggered 
 
 The [IBC hooks module](https://github.com/cosmos/ibc-apps/blob/main/modules/ibc-hooks/README.md), an IBC middleware, enables ICS-20 token transfers to initiate contract calls, allowing cross-chain contract interactions involving token movement. We will use this feature to create a cross-chain DApp that leverages (Secret Network)[https://scrt.network/] [VRF](https://docs.scrt.network/secret-network-documentation/confidential-computing-layer/ibc/cross-chain-randomness-with-secretvrf/secret-vrf-for-ibc-with-ibc-hooks) to generate and process a random number on Coreum.
 
-Discover the latest innovations in Smart Tokens as we guide you through creating a cross-chain “Flip the Coin” DApp. This interactive workshop will demonstrate how to trigger the DApp by sending the FLIP token directly from your wallet.
+Discover the latest innovations in Smart Tokens as we guide you through creating a cross-chain "Flip the Coin" DApp. This interactive workshop will demonstrate how to trigger the DApp by sending the FLIP token directly from your wallet.
 
 #### What You Will Learn
 
@@ -88,3 +88,19 @@ Discover the latest innovations in Smart Tokens as we guide you through creating
 - Step-by-step guidance on creating a cross-chain DApp using IBC Hooks.
 - Hands-on experience with Cored CLI.
 - Generate TypeScript SDKs for your CosmWasm smart contracts
+
+### 5. [Coreum Orderbook DEX](./Coreum-DEX/)
+
+This workshop will guide you through building an interface for the decentralized orderbook (DEX) on the Coreum blockchain. We will be using [coreum.fun](https://coreum.fun) as a reference.
+
+#### What You Will Learn
+
+- Setting up a DEX development environment.
+- Building a user-friendly interface to create orders.
+- Understanding the orderbook and how it works.
+- Interacting with the orderbook. 
+
+#### Prerequisites
+
+- Basic knowledge of TypeScript and React
+- One of the following wallets installed: Keplr, Leap, Cosmostation
