@@ -484,3 +484,15 @@ To work with the smart contract, you can use the provided shell scripts in this 
 ## 📄 License
 
 This project is licensed under the GNU General Public License v3.0.
+
+## ⚠️ Disclaimer
+
+**This code is not production ready and is provided for educational and demonstration purposes only.**
+
+- Users should run this code at their own risk
+- This software is experimental and may contain bugs or security vulnerabilities
+- The Coreum Foundation is not responsible or liable for any damages, losses, or risks that may arise from the use of this code
+- Before using any part of this code in a production environment, thorough testing and security audits should be conducted
+- Users are solely responsible for ensuring the code meets their requirements and security standards
+
+By using this code, you acknowledge that you understand and accept these risks.
